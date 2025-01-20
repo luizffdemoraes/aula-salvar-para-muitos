@@ -1,5 +1,6 @@
 package com.devsuperior.aula.dto;
 
+import com.devsuperior.aula.entities.Category;
 import com.devsuperior.aula.entities.Product;
 
 import java.util.ArrayList;
@@ -22,6 +23,9 @@ public class ProductDTO {
         this.id = product.getId();
         this.name = product.getName();
         this.price = product.getPrice();
+        for (Category category : product.getCategories()) {
+            categories.add(new CategoryDTO(category));
+        }
     }
 
     public Long getId() {
